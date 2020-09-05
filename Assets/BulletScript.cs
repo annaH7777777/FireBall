@@ -5,13 +5,15 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
 
-    bool collision = false;
+    public static bool collision = false;
     public GameObject ball;
+    public GameManager gm;
+    public Playerscript player;
 
 
     private void Update()
     {
-        if (collision == true)
+        /*if (collision == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -21,9 +23,9 @@ public class BulletScript : MonoBehaviour
             }
             else
             {
-                // GameOver();
+                gm.GameOver();
             }
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

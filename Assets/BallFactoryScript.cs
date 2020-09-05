@@ -9,6 +9,7 @@ public class BallFactoryScript : MonoBehaviour
     public float ballForce;
     private float startDelay = 2;
     private float spawnInterval = 1.5f;
+    public GameObject ball; 
 
     // Update is called once per frame
     void Start()
@@ -23,8 +24,11 @@ public class BallFactoryScript : MonoBehaviour
     }
     void Fall()
     {
-        GameObject ball = Instantiate(ballPrefab, ballFactoryPoint.position, ballFactoryPoint.rotation);
-        Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
-        rb.AddForce(ballFactoryPoint.up * ballForce, ForceMode2D.Impulse);
+        if (!GameManager.gameOver)
+        {
+            ball = Instantiate(ballPrefab, ballFactoryPoint.position, ballFactoryPoint.rotation);
+            Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
+            rb.AddForce(ballFactoryPoint.up * ballForce, ForceMode2D.Impulse);
+        }
     }
 }
