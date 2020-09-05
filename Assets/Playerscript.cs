@@ -17,8 +17,8 @@ public class Playerscript : MonoBehaviour
             {
                 Shoot();
             }
-        
             
+
             Debug.Log("Mouse Clicked");
         }
     }

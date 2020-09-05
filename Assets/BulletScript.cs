@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    bool collision = false;
+    public GameObject ball;
+
+
+    private void Update()
     {
-        
+        if (collision == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Button");
+                Destroy(ball);
+                Destroy(gameObject);
+            }
+            else
+            {
+                // GameOver();
+            }
+        }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-            Debug.Log("Collision");
-        }
-        
-        //else GameOver();
+        collision = true;
+        ball = other.gameObject;
+        Debug.Log("Collision");
     }
 }
