@@ -40,6 +40,7 @@ public class Playerscript : MonoBehaviour
                     gm.GameOver();
                     DestroyObjects();
                     Debug.Log("Game Over");
+                    BulletScript.collision = false;
                 }
             }
         }

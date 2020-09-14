@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
 
     public Text highScoreText;
+    //public GameManager gm;
 
 
     // Start is called before the first frame update
@@ -29,5 +31,11 @@ public class GameOverScript : MonoBehaviour
         {
             highScoreText.text = "Game Over!" + "\n" + "Your score is " + ScoreScript.score + "." + "\n" + "High Score is " + highScore + "\n" + "Can you beat it?";
         }
+    }
+    public void StartGame()
+    {
+        GameManager.gameOver = false;
+        ScoreScript.score = 0;
+        SceneManager.LoadScene("Main");
     }
 }
